@@ -32,7 +32,7 @@ namespace VShop.ProductApi.Repositories
         {
             return await _context.Products.Where(p => p.Id == id).FirstOrDefaultAsync();
         }
-        public async Task<Product> Update(int id, Product product)
+        public async Task<Product> Update(Product product)
         {
             _context.Entry(product).State = EntityState.Modified;
             await _context.SaveChangesAsync();

@@ -35,12 +35,12 @@ namespace VShop.ProductApi.Repositories
             return await _context.Categories.Where(c => c.CategoryId == id).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<Category>> GetCategoriesWithProducts()
+        public async Task<IEnumerable<Category>> GetCategoriesProducts()
         {
             return await _context.Categories.Include(c => c.Products).ToListAsync();
         }
 
-        public async Task<Category?> Update(int id, Category category)
+        public async Task<Category?> Update( Category category)
         {
             _context.Entry(category).State = EntityState.Modified;
             await _context.SaveChangesAsync();
